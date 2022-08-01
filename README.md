@@ -4,7 +4,7 @@
 
 ## How to use
 
-<b>Step 1: </b> Create a database. I can use MySQL, PostgreSQL....
+<b>Step 1: </b> Create a database. You can use MySQL, PostgreSQL....
 
 <b>Step 2:</b> Clone this repo to your computer!
 
