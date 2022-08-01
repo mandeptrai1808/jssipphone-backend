@@ -4,7 +4,14 @@ const path = require("path");
 const { sequelize } = require("./models");
 const { rootRouter } = require("./Router");
 const cors = require("cors");
+var http = require("http").createServer(app);
+const { Server } = require("socket.io");
 
+const io = new Server(http, {
+  cors: {
+    origin: "*",
+  },
+});
 
 app.use(express.json());
 app.use(
@@ -19,7 +26,7 @@ app.use("/api/v1", rootRouter);
 
 
 const PORT = process.env.PORT || 6969;
-app.listen(PORT, async () => {
+http.listen(PORT, async () => {
   console.log(`server run on http://localhost:${PORT}`);
   try {
     await sequelize.authenticate();
@@ -31,4 +38,19 @@ app.listen(PORT, async () => {
 
 
 
+//Socket io
+io.on("connection", (socket) => {
+  console.log("helo")
 
+  socket.on("UpdateUserLogs", () => {
+    io.emit("DoUpdateUserLogs")
+  })
+
+  socket.on("UpdateHistories", () => {
+    io.emit("DoUpdateHistories")
+  })
+
+  socket.on("disconnect", () => {
+    console.log("--------disconnect-----")
+  })
+})
