@@ -8,7 +8,7 @@
 
 <b>Step 2:</b> Clone this repo to your computer!
 
-<b>Step 3:</b> Go to <i>config.js</i> file and type infomation of your database in it.
+<b>Step 3:</b> Go to <i>config.json</i> file and type infomation of your database in it.
 ![tu1](https://user-images.githubusercontent.com/103620102/182137712-6022666b-01bf-426a-b996-9a4fa0675890.png)
 
 <b>Step 4:</b> run 'npm run dev' in your terminal, and if you see this it mean any is done!
